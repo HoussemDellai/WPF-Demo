@@ -4,10 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDemo.Views"
+        xmlns:viewModels="clr-namespace:WpfDemo.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
-    <Grid>
+        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+        d:DataContext="{d:DesignInstance viewModels:MainViewModelMock, IsDesignTimeCreatable=True}">
+
+    <StackPanel >
         <Label Content="{Binding Fullname}"/>
-    </Grid>
+
+        <TextBox Text="{Binding JobTitle, Mode=TwoWay}" 
+                 AutomationProperties.Name="JobTextBox"/>
+
+        <Button AutomationProperties.Name="InfoButton"
+                Content="Display Info"
+                />
+
+        <Label AutomationProperties.Name="JobLabel" 
+               Content="{Binding JobTitle}"
+               />
+    </StackPanel>
 </Window>

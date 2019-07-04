@@ -1,4 +1,6 @@
-﻿using WpfDemo.Services;
+﻿using System.ComponentModel;
+using System.Windows;
+using WpfDemo.Services;
 using WpfDemo.ViewModels;
 using Container = SimpleInjector.Container;
 
@@ -13,8 +15,20 @@ namespace WpfDemo
         public ViewModelLocator()
         {
             _container = new Container();
+
             _container.Register<IDataService, DataService>();
-            _container.Register<MainViewModel>();
+
+            _container.Register<MainViewModelMock>();
+
+            //bool designTime = DesignerProperties.GetIsInDesignMode(new DependencyObject());
+            //if (designTime)
+            //{
+            //    _container.Register<MainViewModelMock>();
+            //}
+            //else
+            //{
+            //    _container.Register<MainViewModel>();
+            //}
         }
     }
 }

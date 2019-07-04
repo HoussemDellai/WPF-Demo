@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\IDataService.cs" />
+    <Compile Include="ViewModels\MainViewModelMock.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Page Include="Views\MainWindow.xaml">

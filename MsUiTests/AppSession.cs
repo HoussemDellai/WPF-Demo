@@ -7,7 +7,7 @@ public class AppSession
 {
     // Note: append /wd/hub to the URL if you're directing the test at Appium
     private const string WindowsApplicationDriverUrl = "http://127.0.0.1:4723";
-    private const string CalculatorAppId = @"D:\WpfDemo\WpfDemo\bin\Debug\WpfDemo.exe";//"Microsoft.WindowsCalculator_8wekyb3d8bbwe!App";
+    private const string AppPath = @"D:\WpfDemo\WpfDemo\bin\Debug\WpfDemo.exe";//"Microsoft.WindowsCalculator_8wekyb3d8bbwe!App";
 
     protected static WindowsDriver<WindowsElement> session;
 
@@ -19,7 +19,7 @@ public class AppSession
             // Create a new session to bring up an instance of the Calculator application
             // Note: Multiple calculator windows (instances) share the same process Id
             DesiredCapabilities appCapabilities = new DesiredCapabilities();
-            appCapabilities.SetCapability("app", CalculatorAppId);
+            appCapabilities.SetCapability("app", AppPath);
             appCapabilities.SetCapability("deviceName", "WindowsPC");
             session = new WindowsDriver<WindowsElement>(new Uri(WindowsApplicationDriverUrl), appCapabilities);
             Assert.IsNotNull(session);

@@ -5,9 +5,9 @@ using WpfDemo.Services;
 
 namespace WpfDemo.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModelMock : INotifyPropertyChanged
     {
-        private readonly IDataService _dataService;
+        //private readonly IDataService _dataService;
         private string _fullname;
         private string _jobTitle;
 
@@ -31,18 +31,23 @@ namespace WpfDemo.ViewModels
             }
         }
 
-        public MainViewModel(IDataService dataService)
+        public MainViewModelMock()
         {
-            _dataService = dataService;
-
-            InitializeDataAsync();
+            Fullname = "Adam";
         }
 
-        public async Task InitializeDataAsync()
-        {
-            var fullname = await _dataService.GetFullname();
-            Fullname = fullname;
-        }
+        //public MainViewModel(IDataService dataService)
+        //{
+        //    _dataService = dataService;
+
+        //    InitializeDataAsync();
+        //}
+
+        //public async Task InitializeDataAsync()
+        //{
+        //    var fullname = await _dataService.GetFullname();
+        //    Fullname = fullname;
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
 
